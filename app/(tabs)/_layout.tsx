@@ -11,7 +11,7 @@ function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
 }) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+  return <FontAwesome size={24} style={{ marginBottom: -3 }} {...props} />;
 }
 
 export default function TabLayout() {
@@ -20,13 +20,13 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: '#191919',
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Home Feed',
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -43,13 +43,38 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen
-        name="two"
-        options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      />
+        <Tabs.Screen
+            name="Network"
+            options={{
+                title: "My Network",
+                tabBarIcon: ({ color }) => <TabBarIcon name="group" color={color} />,
+            }}
+        />
+        <Tabs.Screen
+            name="Post"
+            options={{
+                title: "Post",
+                tabBarIcon: ({ color }) => (
+                    <TabBarIcon name="plus-square" color={color} />
+                ),
+            }}
+        />
+        <Tabs.Screen
+            name="Notification"
+            options={{
+                title: "Notifications",
+                tabBarIcon: ({ color }) => <TabBarIcon name="bell" color={color} />,
+            }}
+        />
+        <Tabs.Screen
+            name="Jobs"
+            options={{
+                title: "Jobs",
+                tabBarIcon: ({ color }) => (
+                    <TabBarIcon name="briefcase" color={color} />
+                ),
+            }}
+        />
     </Tabs>
   );
 }
