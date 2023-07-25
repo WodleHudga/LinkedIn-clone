@@ -1,7 +1,8 @@
-import {Text, View,StyleSheet, Image} from "react-native";
+import {Text, View,StyleSheet, Image, Pressable} from "react-native";
 import {Post } from '@/types';
 import {FontAwesome} from "@expo/vector-icons";
 import React from "react";
+import { Link} from 'expo-router';
 
 type PostListItemProps = {
     post: Post;
@@ -22,32 +23,33 @@ function Footer({text, icon}: FooterProp) {
 export default function PostListItem({post}: PostListItemProps) {
 
     return (
-        <View style={styles.container}>
-            {/*Header */}
-            <View style={styles.header}>
-                <Image source={{uri: post.author.image}} style={styles.userImage} />
+        <Link href={`/posts/${post.id}`} asChild>
+            <Pressable style={styles.container}>
+                {/*Header */}
+                <View style={styles.header}>
+                    <Image source={{uri: post.author.image}} style={styles.userImage} />
 
-            <View>
-                <Text style={styles.userName}>{post.author.name}</Text>
-                <Text>{post.author.position}</Text>
-            </View>
-            </View>
-{/*            text content*/}
-<Text style={styles.content}>{post.content}</Text>
-            
-        {/*    image*/}
-            {
-                post.image && (
-                <Image source={{uri: post.image}} style={styles.postImage}/>
-            )
-            }
-        {/*    footer*/}
-            <View style={styles.footer}>
-                <Footer text="Likes" icon="thumbs-o-up" />
-                <Footer text="Comment" icon="comment-o" />
-                <Footer text="Share" icon="share" />
-            </View>
-        </View>
+                <View>
+                    <Text style={styles.userName}>{post.author.name}</Text>
+                    <Text>{post.author.position}</Text>
+                </View>
+                </View>
+                 {/* text content*/}
+                <Text style={styles.content}>{post.content}</Text>
+
+                {/*    image*/}
+                {
+                    post.image && (<Image source={{uri: post.image}} style={styles.postImage}/>
+                )
+                }
+                {/*    footer*/}
+                <View style={styles.footer}>
+                    <Footer text="Likes" icon="thumbs-o-up" />
+                    <Footer text="Comment" icon="comment-o" />
+                    <Footer text="Share" icon="share" />
+                </View>
+            </Pressable>
+        </Link>
     );
 
 }
@@ -56,12 +58,16 @@ const styles = StyleSheet.create({
     userName:{
         fontWeight: "bold",
         fontSize: 16,
-        marginBottom: 5
+        marginBottom: 5,
+
 
 
     },
     container: {
         backgroundColor: 'white',
+        width: '100%',
+        maxWidth: 500,
+        alignSelf: "center"
     },
     userImage: {
         width: 50,
