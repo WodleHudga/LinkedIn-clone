@@ -1,6 +1,7 @@
 import {Text, View,StyleSheet, Image} from "react-native";
 import {Post } from '@/types';
 import {FontAwesome} from "@expo/vector-icons";
+import React from "react";
 
 type PostListItemProps = {
     post: Post;
@@ -21,7 +22,7 @@ function Footer({text, icon}: FooterProp) {
 export default function PostListItem({post}: PostListItemProps) {
 
     return (
-        <View >
+        <View style={styles.container}>
             {/*Header */}
             <View style={styles.header}>
                 <Image source={{uri: post.author.image}} style={styles.userImage} />
@@ -58,6 +59,9 @@ const styles = StyleSheet.create({
         marginBottom: 5
 
 
+    },
+    container: {
+        backgroundColor: 'white',
     },
     userImage: {
         width: 50,
