@@ -1,7 +1,7 @@
 import {Image, Pressable, StyleSheet, TextInput} from 'react-native';
 import { Feather } from '@expo/vector-icons';
 //import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+import { Text, View } from 'react-native';
 import {useNavigation, useRouter} from "expo-router";
 import {useLayoutEffect, useState} from "react";
 import * as ImagePicker from 'expo-image-picker';

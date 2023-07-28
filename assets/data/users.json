@@ -1,0 +1,26 @@
+[
+  {
+    "id": "u2",
+    "name": "Pratik shirodkar",
+    "position": "Founder at nothing",
+    "image": "https://lh3.googleusercontent.com/pw/AIL4fc8Q9V67H4ttJob_VmaKT21qYEzYiYKu2HKBHuWKEw0qejYJnfhxoo8KftSkbrp4SOQjzBOCb3GKANS6xZpFbhKTYakDuM2HFeETNgxGlWTYx4-uKGFMn6snBOa5qzXkLmbE9cjTSnIdB1Z1ADcmwDkM3uo1YHYTGPMXqm_GK6OAAzB6OknIPc-MHG6dtM-Bh6OR_m99VV_nbBu30FvukaJkk3SRiMPIVah0bytqT1wSM0vRKZnxTwo9wjfPp5HnQmbqEp604t2auR0WL1e_fB5mNE6B-9KPlN3ygv5Jv0D2wD2ObWee9OjglJR-EcUWQuBSIJzdS4LDwwRbbziaAmPeTxFLjOxwiJ5kJLcPSXI2ZOeTZ6rVF9CXDuz12Avsym4_BnlQ_foOtGxWYqwkfCc_DOek0Pz92hHD6tUdWlQZGwHl_yTEuU3r3qvfQlYB2-SlZ7jQOyoIFYXZcrCmCJHIDCElu4aeYE6c9BFmXYsElJRoxj93MxdPF2VvrUzm-IiBlbUngtqQEAKEMXRUQT9VjPep70BhQe0Auj3dhiq7I6mORyATA6aiNoeCootaZNduALkqvdowts0el963yqs6e_IE5IjloX-rS9d-bmKK4Z5zVqUqf3tny41mUCY7dehQSO-TvbdVY9-HVhHo-dL1qQUzGkBwi93nvFXqZZasOKo9UW77iUTYQ-LPHYQ_ibLThaXNDqO0EzwDWX-zHspUHYBPHT6jnulL9hPmiGF_aziEHuS19PKzcDjq4UDKxvFx0dnNzHFhwYbD72hdzwA8Hz_jliVaoVfDaLWjnsxQgFoYcI8VQlNjPIkR054JbbeJsDSFLTRZvDdLtF5Yy1xtb9bpP52ZXw517w5V5lhFBULahIkMvldiv5CvYlHIL7R02-IZwUjiJ4vWbP2XHaL-1j4=w498-h884-s-no?authuser=0"
+  },
+  {
+    "id": "u5",
+    "name": "Saiesh, an IBM Company",
+    "position": "GraphQL server with unique architecture",
+    "image": "https://lh3.googleusercontent.com/pw/AIL4fc_0ksRXbfgvfTDEbXwOxf674jpWrTCG_0buyqROwUisQNUcHu9Fnj7sDFyCCBeGRC4n3oai3NeVFfy0i2OEGj4Efst1ARCLo4_4YYW9RcXJQ9eE6abs4JADHewIsCxpfWBBnxp_mDsIdvfzYuZC2B4gfrrUch94CSkIU-53qi2c3MgQJk22gWEnfYSKu6xviW0mYbvHBM6ysRzNiXDLd_uqR35CTvVMI7IUv0ra806yBidhHdzjVQe8c1CIfICZ22mCJjUvS1I60rw7jFyZRSz5gcrrIoJOVPKvwNq6v9dj_CLlKnJaQBBRb78YNUwh80raRtugfahjpohuQdkEa4pk4UPZ-V6SBmuEcQKpXtFDD22CjjiFXzVLKCW6RHug2uv9tlostxRrliYFyv_vCOgaywBl85AILPN1-pqpy4pQWLvpcnb6TDScnCtINCx6yqmTrJKmhTzwFpCefIXxOUuHcYE6WXu7i8YQrfp0LEFQSbJI0NbbtRdEhmuFP5Aa6X9KXt1qFTcLKfrCSy70z2-yCgDeUnwxkROGif9gURcRD40x5tBcF4TDzcUsqV4niUrRTu4R4kVRK5nnnNoElUa-L950xbcfJ1ZBYXOf5angLHC5zR-C-DEgVLyYPG5bFp2WzvVgALqHQVvFd1_xgYeN2dsBvS6bpGwjecM9eVr5AX_7zk6RuM_tbjXQpI6l1BONuc7z_TMWovZflwEsU28G44LigACDVMNMMMhIVQlJ6i6oTIiCECORN3JUzrnOv97g1uqGF9GR1oyyI86pmc-W00uGM6CI_cZRHLHqs6uQ5n-bHH-gE-WTNPQ3id6aUNHDYaHh0zfVt9X3QvxO2dvYfk3_aQZI_6O0i9LQVp22aAyOMtQdMsaWMBEeWw87-6Rp-_cLtbT0z_pXGV8evYnmbndcXfW0kR5Ah4RPdSx2jpzxfVJ0iFvEpW1kXVZYj0Wzh_SX=w823-h617-s-no?authuser=0&authuser=0"
+  },
+  {
+  "id": "u1",
+  "name": "Jeff Bezon",
+  "position": "Intern @Amazon",
+  "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/jeff.jpeg"
+},{
+  "id": "u3",
+  "name": "Peter Johnson",
+  "position": "CTO at Facebook",
+  "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/zuck.jpeg"
+}
+
+]
