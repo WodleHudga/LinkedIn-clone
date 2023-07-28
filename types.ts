@@ -14,4 +14,12 @@ export type User = {
     image? : string;
     backImage?: string;
     about?: string;
+    experience?: experience[];
+}
+
+export type experience = {
+    id: string;
+    title:string;
+    companyName: string;
+    companyImage?: string;
 }

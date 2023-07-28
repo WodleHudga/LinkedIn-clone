@@ -3,7 +3,7 @@ import {StyleSheet, Text, View, Image, Pressable, ScrollView} from "react-native
 //import post from '../../assets/data/posts.json';
 import {useLocalSearchParams,useNavigation} from "expo-router";
 import userJson from '../../assets/data/user.json';
-
+import Experience from '../../components/Experience';
 
 export default function users() {
 
@@ -22,7 +22,7 @@ export default function users() {
     return (
 
         // header
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={styles.header}>
                 <Image source={{uri: user.backImage}} style={styles.backImage} />
               <Image source={{uri: user.image}} style={styles.images} />
@@ -42,20 +42,17 @@ export default function users() {
                 </Text>
             </View>
 
-            {/*// about*/}
-            {/*{user.about && (<View style={styles.container}>*/}
-            {/*    <Text style={styles.aboutHeader}>*/}
-            {/*        About*/}
-            {/*    </Text>*/}
-            {/*    <Text style={styles.aboutBody}>*/}
-            {/*        {user.about}*/}
-            {/*    </Text>*/}
-            {/*</View>)}*/}
+            <View style={styles.section}>
+                <Text style={styles.sectionTitle}>
+                    Experience
+                </Text>
+                {
+                    user.experience?.map(experience =><Experience key={experience.id} Experience={experience}/>)
+                }
 
-            {/*<View style={styles.container}>*/}
-            {/*    <Text>Experience</Text>*/}
-            {/*</View>*/}
-        </View>
+            </View>
+
+        </ScrollView>
     );
 }
 
@@ -63,14 +60,15 @@ const styles = StyleSheet.create(
     {
         container:
             {
-                padding: 10,
-                marginVertical: 5,
+                // padding: 5,
+                // marginVertical: 5,
                 // backgroundColor: 'white',
 
             },
         header:
             {
-backgroundColor: 'white'
+backgroundColor: 'white',
+                marginBottom: 5,
             },
         backImage:
             {
@@ -133,8 +131,8 @@ backgroundColor: 'white'
         },
         section:{
 backgroundColor: 'white',
-            padding: 7,
-            marginVertical: 10,
+            marginVertical: 5,
+            padding: 5,
             borderRadius: 5,
         },
         sectionTitle: {
