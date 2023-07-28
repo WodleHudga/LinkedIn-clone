@@ -26,6 +26,7 @@ export default function PostListItem({post}: PostListItemProps) {
         <Link href={`/posts/${post.id}`} asChild>
             <Pressable style={styles.container}>
                 {/*Header */}
+                <Link href={`/Bio/${post.author.id}`} asChild>
                 <Pressable style={styles.header}>
                         <Image source={{uri: post.author.image}} style={styles.userImage} />
 
@@ -34,6 +35,7 @@ export default function PostListItem({post}: PostListItemProps) {
                         <Text>{post.author.position}</Text>
                     </View>
                 </Pressable>
+                </Link>
                  {/* text content*/}
                 <Text style={styles.content}>{post.content}</Text>
 
