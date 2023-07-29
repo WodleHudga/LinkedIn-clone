@@ -1,7 +1,7 @@
-import { StyleSheet } from 'react-native';
+import {  Text, View,StyleSheet } from 'react-native';
 
 //import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+//import { } from '@/components/Themed';
 
 export default function NotificationScreen() {
   return (
