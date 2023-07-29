@@ -5,11 +5,25 @@ import { Text, View } from 'react-native';
 import {useNavigation, useRouter} from "expo-router";
 import {useLayoutEffect, useState} from "react";
 import * as ImagePicker from 'expo-image-picker';
+import {gql, useMutation} from "@apollo/client";
+
+const inserPost = gql`
+  mutation MyMutation($userid: ID, $image: String, $content: String!) {
+    insertPost(content:  $content, image: $image, userid: $userid) {
+      content
+      id
+      image
+      userid
+    }
+  }
+`;
 
 export default function PostScreen() {
 
   const [content, setContent] = useState('');
   const [image, setImage] = useState<string | null>(null);
+
+  const [handleMutation, {loading, error, data}] = useMutation(inserPost);
   const pickImage = async () => {
       // No permissions request is necessary for launching the image library
       let result = await ImagePicker.launchImageLibraryAsync({
@@ -30,10 +44,26 @@ export default function PostScreen() {
   const router = useRouter();
 
 
-const postButton = () => {
+const postButton = async () => {
   console.warn('posted ', content);
-  router.push('/(tabs)/');
-  // setContent('');
+  try{
+    await handleMutation({variables: {
+        userid: 2,
+        content,
+      },
+    });
+    router.push('/(tabs)/');
+    setContent('');
+    setImage(null);
+  }
+  catch(e){
+    console.log('error :', e);
+  }
+
+
+
+  //
+  //
   }
 
   useLayoutEffect(() => {
@@ -41,10 +71,10 @@ const postButton = () => {
       title: 'New Post',
       headerRight: () =>
           <Pressable onPress={postButton} style={styles.Button}>
-            <Text style={styles.ButtonText}>Post</Text>
+            <Text style={styles.ButtonText}>{loading? "Posting..." : "Post"}</Text>
           </Pressable>
     });
-  }, [postButton])
+  }, [postButton, loading])
   return (
     <View style={styles.container}>
       <TextInput

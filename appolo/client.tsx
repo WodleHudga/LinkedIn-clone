@@ -1,5 +1,5 @@
 // Container component
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
 
 const client = new ApolloClient({
     uri: 'https://bukedea.stepzen.net/api/oldfashioned-otter/__graphql',
