@@ -12,7 +12,7 @@ export type User = {
     name: string;
     position: string;
     image? : string;
-    backImage?: string;
+    backimage?: string;
     about?: string;
     experience?: experience[];
 }
@@ -20,6 +20,6 @@ export type User = {
 export type experience = {
     id: string;
     title:string;
-    companyName: string;
-    companyImage?: string;
+    companyname: string;
+    companyimage?: string;
 }
