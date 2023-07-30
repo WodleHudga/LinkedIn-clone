@@ -1,14 +1,43 @@
-import {useState, useLayoutEffect} from 'react';
-import {StyleSheet, Text, View, Image, Pressable, ScrollView} from "react-native";
+import React, { useLayoutEffect} from 'react';
+import {StyleSheet, Text, View, Image, Pressable, ScrollView, ActivityIndicator} from "react-native";
 //import post from '../../assets/data/posts.json';
 import {useLocalSearchParams,useNavigation} from "expo-router";
-import userJson from '../../assets/data/user.json';
+//import userJson from '../../assets/data/user.json';
 import Experience from '../../components/Experience';
+import {gql, useQuery} from "@apollo/client";
 
+const profiledata = gql`
+    query MyQuery($id: ID!) {
+        profile(id: $id) {
+            about
+            id
+            image
+            name
+            position
+            experience {
+                companyimage
+                companyname
+                id
+                title
+                userid
+            }
+            backimage
+        }
+    }
+`;
 export default function users() {
 
-    const [user, SetUser] = useState(userJson);
+    //const [user, SetUser] = useState(userJson);
     const {id} = useLocalSearchParams();
+
+
+
+    const {loading, error, data} = useQuery(profiledata, {variables: {id},
+    });
+
+    const user = data?.profile;
+
+
 
     const Connect = () => {
         console.warn('Connect is pressed');
@@ -16,15 +45,23 @@ export default function users() {
     const navigation = useNavigation();
 
     useLayoutEffect(() => {
-        navigation.setOptions({ title: user.name });
+        navigation.setOptions({ title: user?.name || 'User' });
     }, [user?.name]);
 
+    if(loading){
+        return <ActivityIndicator />;
+    }
+    if(error){
+        console.log(error);
+        return <Text>something went wrong!</Text>
+    }
+    console.log(data);
     return (
 
         // header
         <ScrollView style={styles.container}>
             <View style={styles.header}>
-                <Image source={{uri: user.backImage}} style={styles.backImage} />
+                <Image source={{uri: user.backimage}} style={styles.backImage} />
               <Image source={{uri: user.image}} style={styles.images} />
                 <Text style={styles.Uname}>{user.name}</Text>
                 <Text style={styles.Uposition}>{user.position}</Text>
@@ -47,7 +84,9 @@ export default function users() {
                     Experience
                 </Text>
                 {
-                    user.experience?.map(experience =><Experience key={experience.id} Experience={experience}/>)
+                    user.experience?.map(experience =>
+                        <Experience key={experience.id} Experience={experience}/>
+                    )
                 }
 
             </View>
