@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import SignInScreen from "./signin";
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
 import SignUpScreen from "./signup";
 
 const AuthScreen = () => {
