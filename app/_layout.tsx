@@ -6,6 +6,14 @@ import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 import {ApolloProvider} from "@apollo/client";
 import client from "../../LinkedIn-FrontEnd/appolo/client";
+import {ClerkProvider} from '@clerk/clerk-expo';
+import {  SignedIn, SignedOut } from "@clerk/clerk-expo";
+//import Auth from "../components/auth/Auth";
+import AuthScreen from "../components/auth/AuthScreen";
+
+
+const CLERK_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY || '';
+
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -48,14 +56,22 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
+      <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY}>
       <ApolloProvider client={client}>
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <SignedIn>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
         <Stack.Screen name="posts/[id]" options={{ title: 'Post' }} />
       </Stack>
+      </SignedIn>
+      <SignedOut>
+         <AuthScreen />
+      </SignedOut>
     </ThemeProvider>
       </ApolloProvider>
+      </ClerkProvider>
+
   );
 }
